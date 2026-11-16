@@ -12,14 +12,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Gochi+Hand&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/trail/trail.css" />
+  <link rel="stylesheet" href="assets/trail/race.css" />
 </head>
 <body>
 
 <header class="topbar">
-  <a class="brand" href="#largada">flemos</a>
+  <a class="brand" href="#" data-go="0">flemos</a>
   <div class="right">
-    <span class="km" aria-live="off"><span id="km">KM 0.0</span> / 42K</span>
+    <span class="km"><span id="km">KM 0.0</span> / 42K</span>
     <div class="lang" role="group" aria-label="Idioma / Language">
       <button type="button" data-lang="es" aria-pressed="true">ES</button>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
@@ -27,365 +27,180 @@
   </div>
 </header>
 
-<main id="main">
-  <svg class="trail-svg" aria-hidden="true"><path class="todo"/><path class="run"/></svg>
+<main id="race" class="race">
+  <div class="sticky">
+    <svg id="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      
+      <!-- 1. far away: the whole mountain, a tiny runner on the switchbacks -->
+      <g id="far"><g><g id="farCam"></g><g id="farRunner"></g></g></g>
 
-  <!-- ============ KM 0 · LARGADA ============ -->
-  <section class="stage start" id="largada" data-km="0" data-label="LARGADA" data-label-en="START">
-    <div class="wrap split">
-      <div class="reveal">
-        <div class="bib">2185<small data-en="SPECIALIST DESIGNER">DISEÑADOR ESPECIALISTA</small></div>
-        <h1>Federico<br/>Lemos</h1>
-        <p class="role" data-en="Specialist Designer · UX/UI">Diseñador especialista · UX/UI</p>
-        <p class="lead" data-en="Humanizing technology, one kilometer at a time. This is my race: scroll and run it with me, from the start line to the finish.">Humanizando tecnología, un kilómetro a la vez. Esta es mi carrera: scrolleá y corrémosla juntos, de la largada a la meta.</p>
-        <dl class="race-info">
-          <dt data-en="Distance">Distancia</dt><dd data-en="20+ years designing interfaces">20+ años diseñando interfaces</dd>
-          <dt data-en="Elevation">Desnivel</dt><dd data-en="3 company names (it's the same trail, I promise)">3 nombres de empresa (es el mismo sendero, lo juro)</dd>
-          <dt data-en="Base camp">Campamento</dt><dd>San Martín de los Andes, Neuquén</dd>
-        </dl>
-        <a class="scroll-hint" href="#hexacta"><span>↓</span> <b data-en="Scroll to start running">Scrolleá para largar</b></a>
-      </div>
-      <div class="hero-img reveal">
-        <img src="images/trail/runner.jpg" width="842" height="1264"
-             alt="Ilustración: Federico corriendo un sendero de montaña con el dorsal 2185"
-             data-en-alt="Illustration: Federico running a mountain trail wearing bib 2185" />
-      </div>
-    </div>
-  </section>
+      <!-- 2. side view, parallax layers -->
+      <g id="side" style="display:none">
+        <g id="sFar"></g>
+        <g id="sPeak"></g>
+        <g id="sMid"></g>
+        <rect class="f-paper" x="-2000" y="742" width="5600" height="400"/><path class="k" d="M-2000 742 L3600 742"/>
+        <g id="sGround"></g>
+        <g id="sItems"></g>
+        <g id="sRunner"></g>
+        <g id="sFore"></g>
+      </g>
 
-  <!-- ============ KM 3 · HEXACTA ============ -->
-  <section class="stage" id="hexacta" data-km="3" data-label="Hexacta">
-    <div class="wrap split">
-      <div class="reveal">
-        <span class="tag">KM 3</span>
-        <h2 data-en="First kilometers: Hexacta">Primeros kilómetros: Hexacta</h2>
-        <p data-en="I started at Hexacta, a software consultancy, designing interfaces for custom-built systems: mapping how people actually work, drawing flows and diagrams, prototyping and testing with users until the business and the people finally understood each other.">Largué en Hexacta, una consultora de software, diseñando interfaces para sistemas a medida: relevar cómo trabaja la gente de verdad, dibujar flujos y diagramas, prototipar y probar con usuarios hasta que el negocio y las personas se entiendan.</p>
-        <p data-en="Along the way I ended up leading multidisciplinary teams: architects, developers of every seniority, testers, functional consultants and designers, working with scrum and kanban.">En el camino terminé liderando equipos multidisciplinarios: arquitectos, desarrolladores de todos los seniority, testers, consultores funcionales y diseñadores, trabajando con scrum y kanban.</p>
-        <span class="note" data-en="Easy pace. Still able to talk while running.">Ritmo cómodo. Todavía puedo hablar mientras corro.</span>
-      </div>
-      <div class="art draw" aria-hidden="true">
-        <svg viewBox="0 0 400 280">
-          <path class="ln thin" d="M0 170 L55 105 L90 135 L150 60 L205 140 L250 100 L320 165 L400 120"/>
-          <path class="ln thin" d="M135 78 L150 60 L163 79 L155 74 L148 82 L142 74 Z"/>
-          <path class="ln" d="M0 262 C80 250 120 268 200 258 S330 250 400 262"/>
-          <path class="ln" d="M140 270 C170 240 230 240 260 270" />
-          <path class="ln" d="M196 258 L196 110"/>
-          <path class="ln fill-paper" d="M150 118 L262 118 L285 138 L262 158 L150 158 Z"/>
-          <text x="166" y="147" font-size="24">HEXACTA</text>
-          <path class="ln fill-paper" d="M230 172 L150 172 L132 188 L150 204 L230 204 Z"/>
-          <text x="150" y="196" font-size="18" data-en="TO WORK">AL TRABAJO</text>
-          <path class="ln" d="M40 140 L22 180 L32 177 L12 217 L29 215 L5 246 L75 246 L51 215 L68 217 L48 177 L58 180 Z M40 246 L40 259"/>
-          <path class="ln" d="M330 155 L316 187 L324 186 L308 218 L321 216 L301 241 L359 241 L339 216 L352 218 L336 186 L344 187 Z M330 241 L330 252"/>
-          <path class="ln" d="M365 185 L354 210 L360 209 L348 234 L358 233 L343 252 L387 252 L372 233 L382 234 L370 209 L376 210 Z M365 252 L365 261"/>
-          <path class="ln thin st-blue" d="M100 262 L104 200 M114 262 L118 205"/>
-        </svg>
-      </div>
-    </div>
-  </section>
+      <!-- 3. the runner comes toward the finish -->
+      <g id="approach" style="display:none">
+        <g id="aWorld"></g>
+        <g id="aRunner"></g>
+        <g id="aArch"></g>
+      </g>
+    </svg>
 
-  <!-- ============ KM 14 · CAMBIO DE TERRENO ============ -->
-  <section class="stage" id="globallogic" data-km="14" data-label="GlobalLogic">
-    <div class="wrap split">
-      <div class="reveal">
-        <span class="tag">KM 14</span>
-        <h2 data-en="Terrain change: GlobalLogic">Cambio de terreno: GlobalLogic</h2>
-        <p data-en="GlobalLogic acquired Hexacta. Same trail, different shirt, and no stopping to get changed. New scale, global teams and bigger products, with the same approach: users first, always.">GlobalLogic compró Hexacta. Mismo sendero, otra remera, y sin parar a cambiarse. Más escala, equipos globales y productos más grandes, con el mismo enfoque: primero las personas usuarias, siempre.</p>
-        <span class="note" data-en="River crossing: feet got wet, kept going.">Cruce de río: se mojaron las zapatillas, se sigue igual.</span>
-      </div>
-      <div class="art draw" aria-hidden="true">
-        <svg viewBox="0 0 400 280">
-          <path class="ln thin" d="M0 120 L70 60 L120 100 L180 40 L250 110 L300 80 L400 130"/>
-          <path class="ln" d="M0 190 C60 182 110 196 170 186"/>
-          <path class="ln" d="M230 186 C290 196 340 182 400 190"/>
-          <path class="ln st-blue" d="M150 210 C180 202 220 218 250 208 M120 236 C170 226 230 244 290 232 M100 262 C160 252 240 270 310 258"/>
-          <path class="ln fill-paper" d="M168 206 C168 196 192 196 192 206 C192 214 168 214 168 206 Z"/>
-          <path class="ln fill-paper" d="M200 228 C200 218 226 218 226 228 C226 236 200 236 200 228 Z"/>
-          <path class="ln fill-paper" d="M222 254 C222 244 250 244 250 254 C250 262 222 262 222 254 Z"/>
-          <path class="ln" d="M60 186 L60 120"/>
-          <path class="ln fill-paper" d="M28 120 L104 120 L104 148 L28 148 Z"/>
-          <text x="34" y="141" font-size="17">HEXACTA</text>
-          <path class="ln st-red" d="M30 124 L102 146"/>
-          <path class="ln" d="M330 190 L330 118"/>
-          <path class="ln fill-paper" d="M282 112 L394 112 L394 142 L282 142 Z"/>
-          <text x="288" y="134" font-size="17">GLOBALLOGIC</text>
-          <path class="ln" d="M126 188 L124 120 M125 136 L188 128 M150 133 L160 116"/>
-          <path class="ln thin fill-paper" d="M154 132 L146 140 L152 146 L156 142 L156 168 L180 166 L179 140 L183 144 L188 137 L180 129 L172 131 C170 136 162 136 160 132 Z"/>
-          <text x="128" y="108" font-size="15" data-en="old shirt">remera vieja</text>
-        </svg>
-      </div>
-    </div>
-  </section>
+    <div id="switchback" class="switchback" aria-hidden="true"><span data-en="switchback ↩">zigzag ↩</span></div>
 
-  <!-- ============ KM 21 · HITACHI ============ -->
-  <section class="stage" id="hitachi" data-km="21" data-label="Hitachi">
-    <div class="wrap split">
-      <div class="reveal">
-        <span class="tag" data-en="KM 21 · HALF MARATHON">KM 21 · MEDIA MARATÓN</span>
-        <h2 data-en="Today: Hitachi Digital">Hoy: Hitachi Digital</h2>
-        <p data-en="GlobalLogic is now part of Hitachi Digital, and that's where I keep running as a Specialist Designer: research, flows, prototypes and user testing, side by side with product and development.">GlobalLogic hoy es parte de Hitachi Digital, y ahí sigo corriendo como Diseñador especialista: research, flujos, prototipos y pruebas con usuarios, codo a codo con producto y desarrollo.</p>
-        <div class="card project">
-          <span class="kicker" data-en="Current project">Proyecto actual</span>
-          <h3>Los Héroes</h3>
-          <p data-en="Designing the experience end to end, from understanding the people who use it to the prototype that gets tested and refined before development.">Diseño de la experiencia de punta a punta, desde entender a las personas que lo usan hasta el prototipo que se prueba y se ajusta antes del desarrollo.</p>
+    <!-- ===== story beats ===== -->
+    <section class="beat hero" data-from="0" data-to="0.075">
+      <div class="bib">2185<small data-en="SPECIALIST DESIGNER">DISEÑADOR ESPECIALISTA</small></div>
+      <h1>Federico Lemos</h1>
+      <p class="role" data-en="Specialist Designer · UX/UI">Diseñador especialista · UX/UI</p>
+      <p class="lead" data-en="Humanizing technology, one kilometer at a time. That tiny guy down there is me: scroll and the camera will catch up.">Humanizando tecnología, un kilómetro a la vez. Ese puntito allá abajo soy yo: scrolleá y la cámara me alcanza.</p>
+      <p class="scroll-hint"><span>↓</span> <b data-en="Scroll to start running">Scrolleá para largar</b></p>
+    </section>
+
+    <section class="beat left" data-from="0.11" data-to="0.19">
+      <span class="tag" data-en="RACE INFO">FICHA DE LA CARRERA</span>
+      <dl class="race-info">
+        <dt data-en="Runner">Corredor</dt><dd>Federico Lemos · #2185</dd>
+        <dt data-en="Distance">Distancia</dt><dd data-en="20+ years designing interfaces">20+ años diseñando interfaces</dd>
+        <dt data-en="Elevation">Desnivel</dt><dd data-en="3 company names (same trail, I promise)">3 nombres de empresa (mismo sendero, lo juro)</dd>
+        <dt data-en="Base camp">Campamento</dt><dd>San Martín de los Andes, Neuquén</dd>
+      </dl>
+      <p class="note" data-en="Status: soft reset needed... good morning.">Estado: soft reset needed... buen día.</p>
+    </section>
+
+    <section class="beat left" data-from="0.235" data-to="0.30">
+      <span class="tag">KM 3</span>
+      <h2 data-en="First kilometers: Hexacta">Primeros kilómetros: Hexacta</h2>
+      <p data-en="I started at Hexacta, a software consultancy, designing interfaces for custom-built systems: mapping how people actually work, drawing flows, prototyping and testing with users until the business and the people understood each other. Along the way I ended up leading multidisciplinary teams with scrum and kanban.">Largué en Hexacta, una consultora de software, diseñando interfaces para sistemas a medida: relevar cómo trabaja la gente de verdad, dibujar flujos, prototipar y probar con usuarios hasta que el negocio y las personas se entiendan. En el camino terminé liderando equipos multidisciplinarios con scrum y kanban.</p>
+      <p class="note" data-en="Easy pace. Still able to talk while running.">Ritmo cómodo. Todavía puedo hablar mientras corro.</p>
+    </section>
+
+    <section class="beat left" data-from="0.325" data-to="0.39">
+      <span class="tag">KM 14</span>
+      <h2 data-en="River crossing: GlobalLogic">Cruce de río: GlobalLogic</h2>
+      <p data-en="GlobalLogic acquired Hexacta. Same trail, different shirt, no stopping to get changed. More scale, global teams and bigger products, same approach: people first.">GlobalLogic compró Hexacta. Mismo sendero, otra remera, y sin parar a cambiarse. Más escala, equipos globales y productos más grandes, con el mismo enfoque: primero las personas.</p>
+      <p class="note" data-en="Wet shoes. Kept going.">Zapatillas mojadas. Se sigue igual.</p>
+    </section>
+
+    <section class="beat left" data-from="0.415" data-to="0.48">
+      <span class="tag" data-en="KM 21 · HALF MARATHON">KM 21 · MEDIA MARATÓN</span>
+      <h2 data-en="Today: Hitachi Digital">Hoy: Hitachi Digital</h2>
+      <p data-en="GlobalLogic is now part of Hitachi Digital, and that's where I keep running as a Specialist Designer.">GlobalLogic hoy es parte de Hitachi Digital, y ahí sigo corriendo como Diseñador especialista.</p>
+      <div class="mini">
+        <span class="kicker" data-en="Current project">Proyecto actual</span>
+        <strong>Los Héroes</strong>
+        <span data-en="End-to-end experience design: research, flows, prototypes and user testing.">Diseño de la experiencia de punta a punta: research, flujos, prototipos y pruebas con usuarios.</span>
+      </div>
+    </section>
+
+    <section class="beat right" data-from="0.56" data-to="0.625">
+      <span class="tag" data-en="KM 28 · SIDE TRAIL">KM 28 · DESVÍO</span>
+      <h2 data-en="Side trail: Palemosoft">Desvío: Palemosoft</h2>
+      <p data-en="In parallel, with Palemosoft we build our own products. A trail that's ours to mark.">En paralelo, con Palemosoft armamos productos propios. Un sendero que marcamos nosotros.</p>
+      <div class="mini">
+        <span class="kicker" data-en="Live">En marcha</span>
+        <strong>facturi.ar</strong>
+        <a class="btn sm" href="https://facturi.ar" target="_blank" rel="noopener"><span data-en="Visit">Visitar</span> ↗</a>
+      </div>
+      <p class="note" data-en="More projects in progress. Not lost, exploring.">Hay otros en progreso. No me perdí, estoy explorando.</p>
+    </section>
+
+    <section class="beat right wide" data-from="0.645" data-to="0.72">
+      <span class="tag" data-en="KM 33 · AID STATION">KM 33 · PUESTO DE HIDRATACIÓN</span>
+      <h2 data-en="Cases that kept me going">Casos que me dieron energía</h2>
+      <p data-en="Interviews, prototypes and user tests to refill and keep going. Grab one:">Entrevistas, prototipos y pruebas con usuarios para recargar y seguir. Agarrá uno:</p>
+      <div class="cups">
+        <button type="button" data-case="ypf"><img src="images/gallery/thumbs/ypf_03.png" alt="" /><span>YPF · QR Almacenes</span></button>
+        <button type="button" data-case="autopago"><img src="images/gallery/thumbs/farmacity_autopago_03.png" alt="" /><span>Farmacity · Autopago</span></button>
+        <button type="button" data-case="farmapp"><img src="images/gallery/thumbs/farmacity_app_03.png" alt="" /><span>Farmacity · App</span></button>
+        <button type="button" data-case="safetap"><img src="images/gallery/thumbs/safetap_03.png" alt="" /><span>Safetap</span></button>
+        <button type="button" data-case="viajeros"><img src="images/gallery/thumbs/viajando_01.png" alt="" /><span>Viajeros</span></button>
+      </div>
+    </section>
+
+    <section class="beat right" data-from="0.745" data-to="0.815">
+      <span class="tag" data-en="KM 38 · THE WALL">KM 38 · EL MURO</span>
+      <h2 data-en="What's in my pack">Lo que llevo en la mochila</h2>
+      <p data-en="When the legs give up, the method carries you.">Cuando las piernas no dan más, te lleva el método.</p>
+      <ul class="pack">
+        <li data-en="Research">Investigación</li><li data-en="Surveys">Encuestas</li><li data-en="Contextual interviews">Entrevistas contextuales</li>
+        <li data-en="Personas">Personas</li><li data-en="User journeys">Viajes de usuario</li><li data-en="Information architecture">Arquitectura de información</li>
+        <li data-en="Iterative prototyping">Prototipado iterativo</li><li data-en="User testing">Pruebas de usuario</li><li data-en="Visual design">Diseño visual</li>
+      </ul>
+      <p class="note" data-en="Snacks: illustration, woodworking and gardening.">Snacks: ilustración, madera y jardinería.</p>
+    </section>
+
+    <section class="beat finish" data-from="0.965" data-to="1">
+      <figure class="photo">
+        <img src="images/trail/runner.jpg" alt="Ilustración: Federico corriendo con el dorsal 2185" data-en-alt="Illustration: Federico running with bib 2185" />
+        <figcaption data-en="Official finish photo">Foto oficial de llegada</figcaption>
+      </figure>
+      <div>
+        <span class="tag">KM 42.195</span>
+        <h2 data-en="Shall we run the next one together?">¿Corremos la próxima juntos?</h2>
+        <p data-en="Have a project, an idea, or want to talk design (or trails)? Write to me on any of my networks.">¿Tenés un proyecto, una idea o querés charlar de diseño (o de senderos)? Escribime por cualquiera de mis redes.</p>
+        <div class="socials">
+          <a class="btn primary" href="https://www.linkedin.com/in/federicosebastianlemos" target="_blank" rel="noopener"><span data-en="Message me on LinkedIn">Escribime por LinkedIn</span> ↗</a>
+          <a class="btn" href="https://www.behance.net/federicolemos" target="_blank" rel="noopener">Behance ↗</a>
+          <a class="btn" href="https://www.instagram.com/federicolemos/" target="_blank" rel="noopener">Instagram ↗</a>
+          <a class="btn" href="https://www.flickr.com/photos/federicolemos" target="_blank" rel="noopener">Flickr ↗</a>
         </div>
-        <span class="note" data-en="Summit reached. Legs: questionable. Views: great.">Cumbre. Piernas: dudosas. Vista: espectacular.</span>
+        <p class="note" data-en="Official time: still running.">Tiempo oficial: todavía corriendo.</p>
       </div>
-      <div class="art draw" aria-hidden="true">
-        <svg viewBox="0 0 400 280">
-          <path class="ln" d="M0 262 L90 180 L130 205 L205 70 L285 190 L320 165 L400 250"/>
-          <path class="ln thin" d="M180 112 L196 102 L205 112 L216 100 L230 114"/>
-          <path class="ln thin" d="M205 70 L205 22"/>
-          <path class="ln fill-red" d="M205 22 L245 32 L205 44 Z"/>
-          <text x="248" y="40" font-size="20">21K</text>
-          <path class="ln thin" stroke-dasharray="4 7" d="M120 262 C150 240 120 222 160 210 S150 170 185 160 S170 125 200 108"/>
-          <path class="ln thin" d="M20 240 L34 236 M50 222 L62 220 M300 214 L316 210 M340 230 L356 228"/>
-          <path class="ln" d="M60 160 L46 192 L54 191 L38 223 L51 221 L31 246 L89 246 L69 221 L82 223 L66 191 L74 192 Z M60 246 L60 257"/>
-          <path class="ln" d="M350 150 L334 186 L343 184 L325 220 L340 218 L318 246 L382 246 L360 218 L375 220 L357 184 L366 186 Z M350 246 L350 258"/>
-          <circle class="ln" cx="330" cy="50" r="22"/>
-          <path class="ln thin" d="M330 16 L330 8 M330 92 L330 84 M296 50 L288 50 M372 50 L364 50 M306 26 L300 20 M354 74 L360 80 M354 26 L360 20 M306 74 L300 80"/>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ KM 28 · PALEMOSOFT ============ -->
-  <section class="stage" id="palemosoft" data-km="28" data-label="Palemosoft">
-    <div class="wrap split">
-      <div class="reveal">
-        <span class="tag" data-en="KM 28 · SIDE TRAIL">KM 28 · DESVÍO</span>
-        <h2 data-en="Side trail: Palemosoft">Desvío: Palemosoft</h2>
-        <p data-en="In parallel, with Palemosoft we build our own products. Same race, a trail that's ours to mark.">En paralelo, con Palemosoft armamos productos propios. Misma carrera, un sendero que marcamos nosotros.</p>
-        <div class="card project">
-          <span class="kicker" data-en="Live">En marcha</span>
-          <h3>facturi.ar</h3>
-          <p data-en="Our first product out on the trail.">Nuestro primer producto en el sendero.</p>
-          <p><a class="btn" href="https://facturi.ar" target="_blank" rel="noopener"><span data-en="Visit facturi.ar">Visitar facturi.ar</span> ↗</a></p>
-        </div>
-        <span class="note" data-en="More projects in progress. Not lost, exploring.">Hay otros proyectos en progreso. No me perdí, estoy explorando.</span>
-      </div>
-      <div class="art draw" aria-hidden="true">
-        <svg viewBox="0 0 400 280">
-          <path class="ln thin" d="M0 130 L80 70 L140 110 L210 50 L290 120 L400 80"/>
-          <path class="ln" d="M150 280 C170 230 200 210 200 200 C200 190 120 170 20 175"/>
-          <path class="ln" d="M250 280 C230 230 205 210 205 200 C205 190 290 168 400 165"/>
-          <path class="ln" d="M200 205 L200 95"/>
-          <path class="ln fill-paper" d="M206 100 L330 100 L350 118 L330 136 L206 136 Z"/>
-          <text x="216" y="125" font-size="20">HITACHI</text>
-          <path class="ln fill-paper" d="M194 144 L74 144 L54 162 L74 180 L194 180 Z"/>
-          <text x="80" y="169" font-size="20">PALEMOSOFT</text>
-          <path class="ln" d="M30 180 L19 205 L25 204 L12 229 L23 228 L8 247 L52 247 L37 228 L48 229 L35 204 L41 205 Z M30 247 L30 256"/>
-          <path class="ln" d="M375 165 L361 196 L369 194 L354 224 L366 223 L348 247 L402 247 L384 223 L396 224 L381 194 L389 196 Z M375 247 L375 257"/>
-          <text x="232" y="88" font-size="15" data-en="9 to 6">de 9 a 18</text>
-          <text x="80" y="200" font-size="15" data-en="after hours">after hours</text>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ KM 33 · PUESTOS DE HIDRATACIÓN ============ -->
-  <section class="stage aid" id="casos" data-km="33" data-label="Casos" data-label-en="Cases">
-    <div class="wrap">
-      <div class="head">
-        <div class="reveal">
-          <span class="tag" data-en="KM 33 · AID STATIONS">KM 33 · PUESTOS DE HIDRATACIÓN</span>
-          <h2 data-en="Cases that kept me going">Casos que me dieron energía</h2>
-          <p data-en="Each project was an aid station: interviews, prototypes and user tests to refill and keep going. A short stop at the most interesting ones.">Cada proyecto fue un puesto de hidratación: entrevistas, prototipos y pruebas con usuarios para recargar y seguir. Una parada corta por los más interesantes.</p>
-        </div>
-        <div class="art draw" aria-hidden="true">
-          <svg viewBox="0 0 260 200">
-            <path class="ln" d="M20 190 L240 190"/>
-            <path class="ln fill-paper" d="M30 110 L230 110 L230 126 L30 126 Z"/>
-            <path class="ln" d="M44 126 L44 190 M216 126 L216 190"/>
-            <path class="ln fill-paper" d="M60 110 L64 86 L80 86 L84 110"/>
-            <path class="ln fill-paper" d="M96 110 L100 86 L116 86 L120 110"/>
-            <path class="ln fill-paper" d="M132 110 L136 86 L152 86 L156 110"/>
-            <path class="ln fill-paper" d="M176 110 L176 60 C176 50 210 50 210 60 L210 110"/>
-            <path class="ln st-blue" d="M184 78 L202 78"/>
-            <path class="ln" d="M130 52 L130 10"/>
-            <path class="ln fill-red" d="M130 10 L170 20 L130 30 Z"/>
-            <text x="34" y="40" font-size="18" data-en="refill here!">¡recargá acá!</text>
-          </svg>
-        </div>
-      </div>
-
-      <div class="cases">
-        <article class="card case reveal">
-          <figure><img loading="lazy" src="images/gallery/thumbs/ypf_03.png" alt="YPF QR Almacenes" /></figure>
-          <div class="body">
-            <span class="cup" data-en="Aid station 1 · mobile app">Puesto 1 · app mobile</span>
-            <h3>YPF · QR Almacenes</h3>
-            <p data-en="Mobile app to create and count inventory of construction materials in the oil and gas industry, across covered and open-air warehouses.">App mobile para crear y contar inventario de materiales de construcción en la industria de hidrocarburos, en almacenes techados y al aire libre.</p>
-            <details>
-              <summary data-en="How we did it">Cómo lo hicimos</summary>
-              <p data-en="Survey and analysis of the operation, detecting problems and opportunities. Interviews, contextual inquiry, first screens and a prototype tested and iterated before development started.">Relevamiento y análisis de la operatoria, detectando problemas y oportunidades. Entrevistas, relevamiento contextual, primeras pantallas y un prototipo que se probó e iteró antes de iniciar el desarrollo.</p>
-            </details>
-            <div class="thumbs">
-              <a href="images/gallery/fulls/ypf_01.png"><img loading="lazy" src="images/gallery/thumbs/ypf_01.png" alt="YPF" /></a>
-              <a href="images/gallery/fulls/ypf_02.png"><img loading="lazy" src="images/gallery/thumbs/ypf_02.png" alt="Wireframe" /></a>
-              <a href="images/gallery/fulls/ypf_03.png"><img loading="lazy" src="images/gallery/thumbs/ypf_03.png" alt="Prototipo" data-en-alt="Prototype" /></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card case reveal">
-          <figure><img loading="lazy" src="images/gallery/thumbs/farmacity_autopago_03.png" alt="Farmacity Autopago" /></figure>
-          <div class="body">
-            <span class="cup" data-en="Aid station 2 · self-checkout">Puesto 2 · autopago</span>
-            <h3>Farmacity · Autopago</h3>
-            <p data-en="Self-checkout terminals where customers scan their products and pay on their own.">Terminales de autopago donde los clientes escanean sus productos y pagan solos.</p>
-            <details>
-              <summary data-en="How we did it">Cómo lo hicimos</summary>
-              <p data-en="Interviews with customers and cashiers across stores, user archetypes, flows and first sketches. A prototype tested in a simulation at the pilot store, then mockups refined through journey maps and more user tests.">Entrevistas a clientes y cajeros de varias sucursales, arquetipos de usuarios, flujos y primeros bocetos. Un prototipo probado en una simulación en la tienda piloto, y después mockups refinados con viajes de usuario y más pruebas.</p>
-            </details>
-            <div class="thumbs">
-              <a href="images/gallery/fulls/farmacity_autopago_01.png"><img loading="lazy" src="images/gallery/thumbs/farmacity_autopago_01.png" alt="Pruebas de usuario en sucursal" data-en-alt="User testing in store" /></a>
-              <a href="images/gallery/fulls/farmacity_autopago_02.png"><img loading="lazy" src="images/gallery/thumbs/farmacity_autopago_02.png" alt="Wireframe" /></a>
-              <a href="images/gallery/fulls/farmacity_autopago_03.png"><img loading="lazy" src="images/gallery/thumbs/farmacity_autopago_03.png" alt="Prototipo" data-en-alt="Prototype" /></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card case reveal">
-          <figure><img loading="lazy" src="images/gallery/thumbs/farmacity_app_03.png" alt="Farmacity App" /></figure>
-          <div class="body">
-            <span class="cup" data-en="Aid station 3 · loyalty app">Puesto 3 · app de fidelización</span>
-            <h3>Farmacity · App</h3>
-            <p data-en="Loyalty app with personalized discounts, nearby stores and services, and medicine search and reservation.">App de fidelización con descuentos personalizados, sucursales cercanas y sus servicios, y búsqueda y reserva de medicamentos.</p>
-            <details>
-              <summary data-en="How we did it">Cómo lo hicimos</summary>
-              <p data-en="Business interviews, in-store surveys, personas and first sketches that became a prototype, tested with users before development.">Entrevistas con el negocio, encuestas en sucursal, personas y primeros bocetos que se convirtieron en un prototipo, probado con usuarios antes del desarrollo.</p>
-            </details>
-            <div class="thumbs">
-              <a href="images/gallery/fulls/farmacity_app_01.png"><img loading="lazy" src="images/gallery/thumbs/farmacity_app_01.png" alt="Pruebas de usuario" data-en-alt="User testing" /></a>
-              <a href="images/gallery/fulls/farmacity_app_02.png"><img loading="lazy" src="images/gallery/thumbs/farmacity_app_02.png" alt="Wireframe" /></a>
-              <a href="images/gallery/fulls/farmacity_app_03.png"><img loading="lazy" src="images/gallery/thumbs/farmacity_app_03.png" alt="Prototipo" data-en-alt="Prototype" /></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card case reveal">
-          <figure><img loading="lazy" src="images/gallery/thumbs/safetap_03.png" alt="Safetap" /></figure>
-          <div class="body">
-            <span class="cup" data-en="Aid station 4 · safety app">Puesto 4 · app de seguridad</span>
-            <h3>Safetap</h3>
-            <p data-en="Mobile app connected to a panic button, sending alerts to the nearest responders so help arrives as fast as possible.">App mobile conectada a un botón antipánico, que dispara alertas a los socorristas más cercanos para que la ayuda llegue lo antes posible.</p>
-            <details>
-              <summary data-en="How we did it">Cómo lo hicimos</summary>
-              <p data-en="Interviews with the profiles the client defined, a prototype and proofs of concept, then a first flow that was tested to refine details before the navigable prototype and visual design.">Entrevistas con los perfiles que definió el cliente, un prototipo y pruebas de concepto, y después un primer flujo que se puso a prueba para ajustar detalles antes del prototipo navegable y el diseño visual.</p>
-            </details>
-            <div class="thumbs">
-              <a href="images/gallery/fulls/safetap_01.png"><img loading="lazy" src="images/gallery/thumbs/safetap_01.png" alt="Pruebas de usuario" data-en-alt="User testing" /></a>
-              <a href="images/gallery/fulls/safetap_02.png"><img loading="lazy" src="images/gallery/thumbs/safetap_02.png" alt="Wireframe" /></a>
-              <a href="images/gallery/fulls/safetap_03.png"><img loading="lazy" src="images/gallery/thumbs/safetap_03.png" alt="Prototipo" data-en-alt="Prototype" /></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card case reveal">
-          <figure><img loading="lazy" src="images/gallery/thumbs/viajando_01.png" alt="Viajeros" /></figure>
-          <div class="body">
-            <span class="cup" data-en="Aid station 5 · ride sharing">Puesto 5 · viajes compartidos</span>
-            <h3>Viajeros</h3>
-            <p data-en="A PWA to share rides in places where getting around is hard, expensive and infrequent: company, shared costs and fewer emissions.">Una PWA para compartir viajes donde moverse es complicado, caro y poco frecuente: compañía, gastos compartidos y menos emisiones.</p>
-            <div class="thumbs">
-              <a href="images/gallery/fulls/viajando_01.png"><img loading="lazy" src="images/gallery/thumbs/viajando_01.png" alt="Wireframe" /></a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ KM 38 · MOCHILA ============ -->
-  <section class="stage" id="mochila" data-km="38" data-label="Mochila" data-label-en="Pack">
-    <div class="wrap split">
-      <div class="reveal">
-        <span class="tag" data-en="KM 38 · THE WALL">KM 38 · EL MURO</span>
-        <h2 data-en="What's in my pack">Lo que llevo en la mochila</h2>
-        <p data-en="When the legs give up, the method carries you. User-centered design, with the end user as the main stakeholder.">Cuando las piernas no dan más, te lleva el método. Diseño centrado en el usuario, con la persona usuaria como principal stakeholder.</p>
-        <div class="card">
-          <ul class="pack-list">
-            <li data-en="Research">Investigación</li>
-            <li data-en="Surveys">Encuestas</li>
-            <li data-en="Competitive analysis">Análisis de competencia</li>
-            <li data-en="Contextual interviews">Entrevistas contextuales</li>
-            <li data-en="Personas">Personas</li>
-            <li data-en="User journeys">Viajes de usuario</li>
-            <li data-en="Iterative prototyping">Prototipado iterativo</li>
-            <li data-en="Information architecture">Arquitectura de la información</li>
-            <li data-en="User testing">Pruebas de usuario</li>
-            <li data-en="Visual design">Diseño visual</li>
-          </ul>
-        </div>
-        <p style="margin-top:1.4rem" data-en="And for the long climbs: illustration, woodworking, recycling things and gardening. They keep me balanced (and they're where drawings like this one come from).">Y para las subidas largas: ilustración, madera, reciclar cosas y jardinería. Me mantienen en equilibrio (y de ahí salen dibujos como este).</p>
-      </div>
-      <div class="art draw" aria-hidden="true">
-        <svg viewBox="0 0 400 300">
-          <path class="ln fill-paper" d="M120 70 C120 40 280 40 280 70 L292 250 C292 268 108 268 108 250 Z"/>
-          <path class="ln" d="M150 52 C150 20 250 20 250 52"/>
-          <path class="ln fill-paper" d="M140 120 L260 120 L256 190 L144 190 Z"/>
-          <path class="ln st-red" d="M150 150 L250 150"/>
-          <path class="ln fill-paper" d="M96 110 L96 70 C96 60 120 60 120 70 L120 110 Z"/>
-          <path class="ln fill-paper" d="M280 110 L280 70 C280 60 304 60 304 70 L304 110 Z"/>
-          <path class="ln fill-blue" d="M102 70 L114 70 L114 58 L102 58 Z"/>
-          <path class="ln fill-blue" d="M286 70 L298 70 L298 58 L286 58 Z"/>
-          <path class="ln fill-paper" d="M190 120 L191 62 L205 62 L206 120"/>
-          <path class="ln" d="M191 62 L198 46 L205 62"/>
-          <path class="ln" d="M330 270 L330 220 M330 240 C310 236 304 220 310 210 C322 214 330 226 330 240 M330 228 C346 222 356 206 352 196 C340 200 330 214 330 228"/>
-          <path class="ln fill-paper" d="M312 270 L348 270 L344 292 L316 292 Z"/>
-          <text x="20" y="180" font-size="17" data-en="gels: mate">geles: mate</text>
-          <path class="ln thin" d="M88 170 L108 160"/>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ KM 42 · META ============ -->
-  <section class="stage finish" id="meta" data-km="42.195" data-label="META" data-label-en="FINISH">
-    <div class="wrap reveal">
-      <div class="art draw" aria-hidden="true">
-        <svg viewBox="0 0 400 240">
-          <path class="ln" d="M40 236 L40 40 M360 236 L360 40"/>
-          <path class="ln fill-paper" d="M30 40 L370 40 L370 92 L30 92 Z"/>
-          <text x="200" y="78" font-size="34" text-anchor="middle" data-en="FINISH">META</text>
-          <path class="ln thin" d="M40 110 Q120 130 200 110 Q280 130 360 110"/>
-          <path class="ln thin fill-red" d="M64 115 L72 132 L80 118 Z M120 121 L128 138 L136 121 Z"/>
-          <path class="ln thin fill-blue" d="M92 120 L100 137 L108 121 Z M148 119 L156 136 L164 117 Z"/>
-          <path class="ln thin fill-red" d="M236 117 L244 136 L252 119 Z M292 121 L300 138 L308 121 Z"/>
-          <path class="ln thin fill-blue" d="M264 121 L272 138 L280 121 Z M320 118 L328 132 L336 115 Z"/>
-          <path class="ln fill-paper" d="M160 6 L240 6 L240 30 L160 30 Z"/>
-          <text x="200" y="25" font-size="18" text-anchor="middle">42.195</text>
-          <path class="ln" d="M182 150 L200 182 L218 150"/>
-          <circle class="ln fill-paper" cx="200" cy="200" r="22"/>
-          <text x="200" y="207" font-size="18" text-anchor="middle">2185</text>
-          <path class="ln" d="M0 236 L400 236"/>
-          <path class="ln thin" d="M60 236 L70 226 L80 236 L90 226 L100 236 M300 236 L310 226 L320 236 L330 226 L340 236"/>
-        </svg>
-      </div>
-      <span class="tag">KM 42.195</span>
-      <h2 data-en="Shall we run the next one together?">¿Corremos la próxima juntos?</h2>
-      <p data-en="If you have a project, an idea or just want to talk about design (or trails), write to me on any of my networks. I reply faster than I climb.">Si tenés un proyecto, una idea o simplemente querés charlar de diseño (o de senderos), escribime por cualquiera de mis redes. Respondo más rápido de lo que subo.</p>
-      <div class="socials">
-        <a class="btn primary" href="https://www.linkedin.com/in/federicosebastianlemos" target="_blank" rel="noopener"><span data-en="Message me on LinkedIn">Escribime por LinkedIn</span> ↗</a>
-        <a class="btn" href="https://www.behance.net/federicolemos" target="_blank" rel="noopener">Behance ↗</a>
-        <a class="btn" href="https://www.instagram.com/federicolemos/" target="_blank" rel="noopener">Instagram ↗</a>
-        <a class="btn" href="https://www.flickr.com/photos/federicolemos" target="_blank" rel="noopener">Flickr ↗</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </main>
-
-<footer>
-  <p class="hand" data-en="Official time: still running.">Tiempo oficial: todavía corriendo.</p>
-  <p>© 2026 flemos · San Martín de los Andes</p>
-</footer>
 
 <nav class="profile" aria-label="Perfil de altimetría" data-en-aria-label="Elevation profile">
   <svg id="profile" role="img"></svg>
 </nav>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true"><img alt="" /></div>
+<!-- case details (shown in the dialog) -->
+<div hidden>
+  <div id="case-ypf">
+    <h3>YPF · QR Almacenes</h3>
+    <p data-en="Mobile app to create and count inventory of construction materials in the oil and gas industry, across covered and open-air warehouses.">App mobile para crear y contar inventario de materiales de construcción en la industria de hidrocarburos, en almacenes techados y al aire libre.</p>
+    <p data-en="Survey and analysis of the operation, interviews, contextual inquiry, first screens and a prototype tested and iterated before development.">Relevamiento y análisis de la operatoria, entrevistas, relevamiento contextual, primeras pantallas y un prototipo que se probó e iteró antes del desarrollo.</p>
+    <div class="shots"><img src="images/gallery/fulls/ypf_01.png" alt="" loading="lazy"/><img src="images/gallery/fulls/ypf_02.png" alt="" loading="lazy"/><img src="images/gallery/fulls/ypf_03.png" alt="" loading="lazy"/></div>
+  </div>
+  <div id="case-autopago">
+    <h3>Farmacity · Autopago</h3>
+    <p data-en="Self-checkout terminals where customers scan their products and pay on their own.">Terminales de autopago donde los clientes escanean sus productos y pagan solos.</p>
+    <p data-en="Interviews with customers and cashiers, archetypes, flows and sketches; a prototype tested in a simulation at the pilot store, then mockups refined with journey maps and more tests.">Entrevistas a clientes y cajeros, arquetipos, flujos y bocetos; un prototipo probado en una simulación en la tienda piloto, y después mockups refinados con viajes de usuario y más pruebas.</p>
+    <div class="shots"><img src="images/gallery/fulls/farmacity_autopago_01.png" alt="" loading="lazy"/><img src="images/gallery/fulls/farmacity_autopago_02.png" alt="" loading="lazy"/><img src="images/gallery/fulls/farmacity_autopago_03.png" alt="" loading="lazy"/></div>
+  </div>
+  <div id="case-farmapp">
+    <h3>Farmacity · App</h3>
+    <p data-en="Loyalty app with personalized discounts, nearby stores and services, and medicine search and reservation.">App de fidelización con descuentos personalizados, sucursales cercanas y sus servicios, y búsqueda y reserva de medicamentos.</p>
+    <p data-en="Business interviews, in-store surveys, personas and sketches that became a prototype, tested with users before development.">Entrevistas con el negocio, encuestas en sucursal, personas y bocetos que se convirtieron en un prototipo, probado con usuarios antes del desarrollo.</p>
+    <div class="shots"><img src="images/gallery/fulls/farmacity_app_01.png" alt="" loading="lazy"/><img src="images/gallery/fulls/farmacity_app_02.png" alt="" loading="lazy"/><img src="images/gallery/fulls/farmacity_app_03.png" alt="" loading="lazy"/></div>
+  </div>
+  <div id="case-safetap">
+    <h3>Safetap</h3>
+    <p data-en="Mobile app connected to a panic button that alerts the nearest responders so help arrives as fast as possible.">App mobile conectada a un botón antipánico, que alerta a los socorristas más cercanos para que la ayuda llegue lo antes posible.</p>
+    <p data-en="Interviews, a prototype and proofs of concept, then a tested flow to refine details before the navigable prototype and visual design.">Entrevistas, un prototipo y pruebas de concepto, y después un flujo probado para ajustar detalles antes del prototipo navegable y el diseño visual.</p>
+    <div class="shots"><img src="images/gallery/fulls/safetap_01.png" alt="" loading="lazy"/><img src="images/gallery/fulls/safetap_02.png" alt="" loading="lazy"/><img src="images/gallery/fulls/safetap_03.png" alt="" loading="lazy"/></div>
+  </div>
+  <div id="case-viajeros">
+    <h3>Viajeros</h3>
+    <p data-en="A PWA to share rides where getting around is hard, expensive and infrequent: company, shared costs and fewer emissions.">Una PWA para compartir viajes donde moverse es complicado, caro y poco frecuente: compañía, gastos compartidos y menos emisiones.</p>
+    <div class="shots"><img src="images/gallery/fulls/viajando_01.png" alt="" loading="lazy"/></div>
+  </div>
+</div>
 
-<script src="assets/trail/trail.js"></script>
+<dialog id="caseDlg">
+  <button type="button" class="dlg-close" aria-label="Cerrar" data-en-aria-label="Close">✕</button>
+  <div class="dlg-body"></div>
+</dialog>
+
+<script src="assets/trail/race.js"></script>
 </body>
 </html>
