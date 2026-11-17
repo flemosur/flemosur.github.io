@@ -1,378 +1,192 @@
-<!DOCTYPE HTML>
-<html>
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-	<title>FLEMOS portfolio</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<meta name="description"
-		content="Consultor de diseño con mas de 15 años de experiencia en diseño de interfaces web y aplicaciones" />
-	<meta name="keywords"
-		content="Design consultant, design interfaces, user experience, user interfaces, humanize technology, experiencia de usuario, diseño de interfaces, web, mobile, aplicaciones, diseño centrado en el usuario" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168720884-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-
-		gtag('config', 'UA-168720884-1');
-	</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-en="Federico Lemos · Specialist Designer">Federico Lemos · Diseñador especialista</title>
+  <meta name="description" content="Federico Lemos (flemos), diseñador especialista en UX/UI. Más de 20 años humanizando tecnología: Hexacta, GlobalLogic, Hitachi Digital y Palemosoft." />
+  <meta name="theme-color" content="#a2e2cd" />
+  <meta property="og:title" content="Federico Lemos · Diseñador especialista" />
+  <meta property="og:description" content="Una carrera de trail de largada a meta: mi recorrido como diseñador." />
+  <meta property="og:image" content="images/trail/runner.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Gochi+Hand&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/trail/race.css" />
 </head>
+<body>
 
-<body class="is-preload">
-	<div id="introLoader" class="introloader">
-		<div class="spinner">
+<header class="topbar">
+  <a class="brand" href="#" data-go="0">flemos</a>
+  <div class="right">
+    <span class="km"><span id="km">KM 0.0</span> / 42K</span>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
 
-			<div class="lds-ring">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-			<!-- <div id="introLoader" class="introloader">
-		  <div class="spinner">
-			  <svg version="1.1"
-				  xmlns="http://www.w3.org/2000/svg"
-				  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="25 25 50 50">
-				  
-				  <path fill="#ddd" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50"> -->
-			<!-- <circle cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke="#f93044" stroke-linecap="round" stroke-dashoffset="0" stroke-dasharray="100, 200"> -->
-			<!-- <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 50 50" to="360 50 50" dur="2.5s" repeatCount="indefinite"/> -->
-			<!-- <animate attributeName="stroke-dashoffset" values="0;-30;-124" dur="1.25s" repeatCount="indefinite"/>
-					  <animate attributeName="stroke-dasharray" values="0,200;110,200;110,200" dur="1.25s" repeatCount="indefinite"/> -->
-			<!-- </circle> -->
-			<!-- </path>
-			  </svg>
-		  </div>
-		</div> -->
-		</div>
-	</div>
-	<!-- <div id="introLoader" class="introloader">
-		<div class="spinner">
-			<svg version="1.1"
-				xmlns="http://www.w3.org/2000/svg"
-				xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="25 25 50 50">
-				
-				<path fill="#ddd" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50"> -->
-	<!-- <circle cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke="#f93044" stroke-linecap="round" stroke-dashoffset="0" stroke-dasharray="100, 200"> -->
-	<animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50"
-		repeatCount="indefinite" />
-	<div id="timeline-wrapper">
-		<div type="timeline" id="slide-content">
+<main id="race" class="race">
+  <div class="sticky">
+    <div class="stage" aria-hidden="true">
+      <div class="scene" id="sc-far"><img src="images/trail/far.jpg" alt="" /></div>
+      <div class="scene" id="sc-a"><img src="images/trail/side-a.jpg" alt="" /></div>
+      <div class="scene mirror" id="sc-b"><img src="images/trail/side-b.jpg" alt="" /></div>
+      <div class="scene" id="sc-run"><img src="images/trail/runner.jpg" alt="" /></div>
+      <div class="scene" id="sc-meta"><img src="images/trail/meta.jpg" alt="" /></div>
+    </div>
 
-			<!-- Wrapper -->
-			<div id="wrapper">
+    <div id="switchback" class="switchback" aria-hidden="true"><span data-en="switchback ↩">zigzag ↩</span></div>
 
-				<!-- Intro -->
-				<section class="intro">
-					<div class="content">
-						<span class="image fill" data-position="center"><img src="images/flemos_z.png"
-								alt="Flemos in the south" /></span>
-					</div>
-					<header>
-						<h1>FLEMOS</h1>
-						<p>Licenciado en Diseño de Comunicación Visual</p>
-						<ul class="actions">
-							<li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
-						</ul>
-					</header>
-				</section>
+    <!-- ===== story beats ===== -->
+    <section class="beat hero" data-from="0" data-to="0.06">
+      <div class="bib">2185<small data-en="SPECIALIST DESIGNER">DISEÑADOR ESPECIALISTA</small></div>
+      <h1>Federico Lemos</h1>
+      <p class="role" data-en="Specialist Designer · UX/UI">Diseñador especialista · UX/UI</p>
+      <p class="lead" data-en="Humanizing technology, one kilometer at a time. That tiny guy down there is me: scroll and the camera will catch up.">Humanizando tecnología, un kilómetro a la vez. Ese puntito allá abajo soy yo: scrolleá y la cámara me alcanza.</p>
+      <p class="scroll-hint"><span>↓</span> <b data-en="Scroll to start running">Scrolleá para largar</b></p>
+    </section>
 
-				<!-- Section -->
-				<section id="first">
-					<header>
-						<h2>Humanizando tecnología!</h2>
-					</header>
-					<div class="content">
-						<p>
-							<strong>Cuento con 15 años de experiencia en el mundillo web.</strong>
-							<br>
-							Siempre ligado al diseño de interfaces dentro del desarrollo de sistemas a medida,
-							diagramando, planificando y creando flujos, diagramas y alternativas que ayuden a los
-							usuarios a entenderse con el negocio.
-						</p>
-						<span class="image main"><img src="images/flemos_y.png" alt="flemos" /></span>
-					</div>
-				</section>
+    <section class="beat left" data-from="0.10" data-to="0.18">
+      <span class="tag" data-en="RACE INFO">FICHA DE LA CARRERA</span>
+      <dl class="race-info">
+        <dt data-en="Runner">Corredor</dt><dd>Federico Lemos · #2185</dd>
+        <dt data-en="Distance">Distancia</dt><dd data-en="20+ years designing interfaces">20+ años diseñando interfaces</dd>
+        <dt data-en="Elevation">Desnivel</dt><dd data-en="3 company names (same trail, I promise)">3 nombres de empresa (mismo sendero, lo juro)</dd>
+        <dt data-en="Base camp">Campamento</dt><dd>San Martín de los Andes, Neuquén</dd>
+      </dl>
+      <p class="note" data-en="Status: soft reset needed... good morning.">Estado: soft reset needed... buen día.</p>
+    </section>
 
-				<!-- Section -->
-				<section>
-					<header>
-						<h2>Al servicio del <span class="line-through">cliente</span> usuario</h2>
-					</header>
-					<div class="content">
-						<p><strong>Diseño centrado en el usuario</strong>, por medio de diferentes técnicas teniendo
-							presente al usuario final como principal stakeholder se trabaja en el producto mas adecuado
-							para es destinatario.</p>
-						<ul class="feature-icons">
-							<li class="icon solid fa-search-plus">Investigación</li>
-							<li class="icon solid fa-file-alt">Encuestas</li>
-							<li class="icon solid fa-clone">Analisis de competencia</li>
-							<li class="icon solid fa-microphone">Entrevistas contextuales</li>
-							<li class="icon solid fa-user">Creación de Personas</li>
-							<li class="icon solid fa-paper-plane">Viaje de usuario</li>
-							<li class="icon solid fa-project-diagram">Prototipado iterativo</li>
-							<li class="icon solid fa-sitemap">Arquitectura de la información</li>
-							<li class="icon solid fa-tasks">Pruebas de usuario</li>
-							<li class="icon solid fa-highlighter">Diseño visual</li>
-						</ul>
-						<p>Dada mi experiencia en la industria, he llegado a liderar equipos de trabajo
-							multidiciplinarios con arquitectos de software, diferentes seniority de desarrolladores,
-							tester, consultores funcionales y diseñadores. Trabajando con diferentes metodologia, como
-							scrum, kanban.</p>
-					</div>
-				</section>
+    <section class="beat left" data-from="0.235" data-to="0.30">
+      <span class="tag">KM 3</span>
+      <h2 data-en="First kilometers: Hexacta">Primeros kilómetros: Hexacta</h2>
+      <p data-en="I started at Hexacta, a software consultancy, designing interfaces for custom-built systems: mapping how people actually work, drawing flows, prototyping and testing with users until the business and the people understood each other. Along the way I ended up leading multidisciplinary teams with scrum and kanban.">Largué en Hexacta, una consultora de software, diseñando interfaces para sistemas a medida: relevar cómo trabaja la gente de verdad, dibujar flujos, prototipar y probar con usuarios hasta que el negocio y las personas se entiendan. En el camino terminé liderando equipos multidisciplinarios con scrum y kanban.</p>
+      <p class="note" data-en="Easy pace. Still able to talk while running.">Ritmo cómodo. Todavía puedo hablar mientras corro.</p>
+    </section>
 
-				<!-- Section -->
-				<section>
-					<header>
-						<h2>Ultimos proyectos & casos de exito!</h2>
-					</header>
-					<div class="content">
-						<p>
-							<strong>Proyectos pensados para el usuario</strong>, breve recorrido por los proyectos mas
-							interesantes en los que me toco participar!
-						</p>
+    <section class="beat left" data-from="0.325" data-to="0.39">
+      <span class="tag">KM 14</span>
+      <h2 data-en="River crossing: GlobalLogic">Cruce de río: GlobalLogic</h2>
+      <p data-en="GlobalLogic acquired Hexacta. Same trail, different shirt, no stopping to get changed. More scale, global teams and bigger products, same approach: people first.">GlobalLogic compró Hexacta. Mismo sendero, otra remera, y sin parar a cambiarse. Más escala, equipos globales y productos más grandes, con el mismo enfoque: primero las personas.</p>
+      <p class="note" data-en="Wet shoes. Kept going.">Zapatillas mojadas. Se sigue igual.</p>
+    </section>
 
-					</div>
-				</section>
-				<!-- Section -->
-				<section>
-					<header>
-						<h3>YPF - QR Almacenes</h3>
-						<p>
-							Aplicación mobile para creación y recuento de inventario de materiales para construcción de
-							instalaciones en la industria de hidrocarburos. Los materiales se encuentran en almacenes,
-							los cuales son predios techados y al aire libre. Procesamiento de materiales, ingresos y
-							egresos, cambios de ubicación.
-							<br>
-							El trabajo que se realizo fue un primer relevamiento y analisis sobre la operatoria,
-							detectando problemas y oportunidades de mejora que podria brindar la herramienta. Se
-							hicieron entrevistas, relevamiento contextual, unas primeras pantallas y luego un prototipo
-							que se puso a prueba, con este se fue iterando hasta inicial el desarrollo.
-						</p>
-					</header>
-					<div class="content">
-						<div class="gallery">
-							<a href="images/gallery/fulls/ypf_01.png" class="landscape"><img
-									src="images/gallery/thumbs/ypf_01.png" alt="YPF - Movilidad de Almacenes" /></a>
-							<a href="images/gallery/fulls/ypf_02.png"><img src="images/gallery/thumbs/ypf_02.png"
-									alt="Wireframe" /></a>
-							<a href="images/gallery/fulls/ypf_03.png"><img src="images/gallery/thumbs/ypf_03.png"
-									alt="Prototipo" /></a>
-						</div>
-					</div>
-				</section>
+    <section class="beat left" data-from="0.415" data-to="0.47">
+      <span class="tag" data-en="KM 21 · HALF MARATHON">KM 21 · MEDIA MARATÓN</span>
+      <h2 data-en="Today: Hitachi Digital">Hoy: Hitachi Digital</h2>
+      <p data-en="GlobalLogic is now part of Hitachi Digital, and that's where I keep running as a Specialist Designer.">GlobalLogic hoy es parte de Hitachi Digital, y ahí sigo corriendo como Diseñador especialista.</p>
+      <div class="mini">
+        <span class="kicker" data-en="Current project">Proyecto actual</span>
+        <strong>Los Héroes</strong>
+        <span data-en="End-to-end experience design: research, flows, prototypes and user testing.">Diseño de la experiencia de punta a punta: research, flujos, prototipos y pruebas con usuarios.</span>
+      </div>
+    </section>
 
-				<!-- Section -->
-				<section>
-					<header>
-						<h3>Farmacity Autopago</h3>
-						<p>
-							Aplicación para terminales de pago, donde los clientes realizan el escaneo de los productos
-							que van a comprar y efectuan el pago de los mismos.
-							<br>
-							El trabajo que se realizo en un primer momento fue entender las necesidades de los clientes,
-							potenciales usuarios y conocer con que problemas se encontraban a diario los cajeros para
-							que el usuario los pueda sortear. Se hicieron entrevistas a clientes y a cajeros de diversas
-							sucursales, se crearon arquetipos de usuarios, se hicieron flujos de usuario y empezamos a
-							trabajar en los primeros bocetos, llegando a un prototipo, que pusimos a prueba en una
-							simulación en la tienda piloto, fuimos refinando y ajustando, mientras avanzabamos con el
-							diseño y las siguientes pruebas se realizaron sobre mockups, con un diseño definido,
-							iterando esto por medio de viaje de usuario y otras pruebas de usuario, hasta finalizar el
-							proyecto.
-						</p>
-					</header>
-					<div class="content">
-						<div class="gallery">
-							<a href="images/gallery/fulls/farmacity_autopago_01.png" class="landscape"><img
-									src="images/gallery/thumbs/farmacity_autopago_01.png"
-									alt="Pruebas de usuario en sucursal" /></a>
-							<a href="images/gallery/fulls/farmacity_autopago_02.png"><img
-									src="images/gallery/thumbs/farmacity_autopago_02.png" alt="Wireframe" /></a>
-							<a href="images/gallery/fulls/farmacity_autopago_03.png"><img
-									src="images/gallery/thumbs/farmacity_autopago_03.png" alt="Prototipo" /></a>
-						</div>
-					</div>
-				</section>
+    <section class="beat right" data-from="0.555" data-to="0.615">
+      <span class="tag" data-en="KM 28 · SIDE TRAIL">KM 28 · DESVÍO</span>
+      <h2 data-en="Side trail: Palemosoft">Desvío: Palemosoft</h2>
+      <p data-en="In parallel, with Palemosoft we build our own products. A trail that's ours to mark.">En paralelo, con Palemosoft armamos productos propios. Un sendero que marcamos nosotros.</p>
+      <div class="mini">
+        <span class="kicker" data-en="Live">En marcha</span>
+        <strong>facturi.ar</strong>
+        <a class="btn sm" href="https://facturi.ar" target="_blank" rel="noopener"><span data-en="Visit">Visitar</span> ↗</a>
+      </div>
+      <p class="note" data-en="More projects in progress. Not lost, exploring.">Hay otros en progreso. No me perdí, estoy explorando.</p>
+    </section>
 
-				<!-- Section -->
-				<section>
-					<header>
-						<h3>Safetap</h3>
-						<p>
-							Aplicación mobile para mujeres de fraternidades que recibia información de un dispositivo o
-							boton antipanico, el cual tenia como fin poder socorrer a una mujer atacada en el menor
-							tiempo posible, disparando estos alertas a los usuarios socorristas mas cercanos.
-							<br>
-							El trabajo que se realizo fue en un primer momento entender el objetivo, el contexto por
-							medio de entrevistas con perfiles que nos indico el cliente, quien ya tenia realizado un
-							trabajo bastante grande de marketing, con esa información creamos un prototipo e hicimos
-							pruebas de concepto, para luego hacerle una primera entrega de un flujo, que tambien se puso
-							a prueba y sirvio para ajustar y refinar detalles para empezar a trabajar en el prototipo
-							navegable y los aspectos visuales.
-						</p>
-					</header>
-					<div class="content">
-						<div class="gallery">
-							<a href="images/gallery/fulls/safetap_01.png" class="landscape"><img
-									src="images/gallery/thumbs/safetap_01.png"
-									alt="Pruebas de usuario en la consultora" /></a>
-							<a href="images/gallery/fulls/safetap_02.png"><img
-									src="images/gallery/thumbs/safetap_02.png" alt="Wireframe" /></a>
-							<a href="images/gallery/fulls/safetap_03.png"><img
-									src="images/gallery/thumbs/safetap_03.png" alt="Prototipo" /></a>
-						</div>
-					</div>
-				</section>
+    <section class="beat right wide" data-from="0.64" data-to="0.71">
+      <span class="tag" data-en="KM 33 · AID STATION">KM 33 · PUESTO DE HIDRATACIÓN</span>
+      <h2 data-en="Cases that kept me going">Casos que me dieron energía</h2>
+      <p data-en="Interviews, prototypes and user tests to refill and keep going. Grab one:">Entrevistas, prototipos y pruebas con usuarios para recargar y seguir. Agarrá uno:</p>
+      <div class="cups">
+        <button type="button" data-case="ypf"><img src="images/gallery/thumbs/ypf_03.png" alt="" /><span>YPF · QR Almacenes</span></button>
+        <button type="button" data-case="autopago"><img src="images/gallery/thumbs/farmacity_autopago_03.png" alt="" /><span>Farmacity · Autopago</span></button>
+        <button type="button" data-case="farmapp"><img src="images/gallery/thumbs/farmacity_app_03.png" alt="" /><span>Farmacity · App</span></button>
+        <button type="button" data-case="safetap"><img src="images/gallery/thumbs/safetap_03.png" alt="" /><span>Safetap</span></button>
+        <button type="button" data-case="viajeros"><img src="images/gallery/thumbs/viajando_01.png" alt="" /><span>Viajeros</span></button>
+      </div>
+    </section>
 
-				<!-- Section -->
-				<section>
-					<header>
-						<h3>Farmacity App</h3>
-						<p>
-							Aplicación mobile para fidelizar clientes. Por medio de descuentos personalizados se buscaba
-							invitar a los clientes a ser parte de un programa donde ademas de descuentos encontraras
-							información de interes, acercamiento al e-commerce, poder encontrar sucursales cercanas y
-							saber los servicios prestados por la misma. Ademas tener la posibilidad de buscar
-							medicamentos y realizar reserva de los mismos.
-							<br>
-							El trabajo que se realizo consistio en entrevistas con el negocio para entender el objetivo,
-							se realizaron encuentas en sucursal, se desarrollaron perfiles de personas y se hicieron los
-							primeros bocetos, que pasaron a convertirse en un proto, el cual se puso a prueba con
-							usuarios para poder refinar y ajustar detalles antes de empezar el desarrollo.
-						</p>
-					</header>
-					<div class="content">
-						<div class="gallery">
-							<a href="images/gallery/fulls/farmacity_app_01.png" class="landscape"><img
-									src="images/gallery/thumbs/farmacity_app_01.png"
-									alt="Ensayo de pruebas de usuario en la oficina" /></a>
-							<a href="images/gallery/fulls/farmacity_app_02.png"><img
-									src="images/gallery/thumbs/farmacity_app_02.png" alt="Wireframe" /></a>
-							<a href="images/gallery/fulls/farmacity_app_03.png"><img
-									src="images/gallery/thumbs/farmacity_app_03.png" alt="Prototipo" /></a>
-						</div>
-					</div>
-				</section>
+    <section class="beat right" data-from="0.73" data-to="0.79">
+      <span class="tag" data-en="KM 38 · THE WALL">KM 38 · EL MURO</span>
+      <h2 data-en="What's in my pack">Lo que llevo en la mochila</h2>
+      <p data-en="When the legs give up, the method carries you.">Cuando las piernas no dan más, te lleva el método.</p>
+      <ul class="pack">
+        <li data-en="Research">Investigación</li><li data-en="Surveys">Encuestas</li><li data-en="Contextual interviews">Entrevistas contextuales</li>
+        <li data-en="Personas">Personas</li><li data-en="User journeys">Viajes de usuario</li><li data-en="Information architecture">Arquitectura de información</li>
+        <li data-en="Iterative prototyping">Prototipado iterativo</li><li data-en="User testing">Pruebas de usuario</li><li data-en="Visual design">Diseño visual</li>
+      </ul>
+      <p class="note" data-en="Snacks: illustration, woodworking and gardening.">Snacks: ilustración, madera y jardinería.</p>
+    </section>
 
-				<!-- Section -->
-				<section>
-					<header>
-						<h3>Viajeros</h3>
-						<p>
-							Aplicación mobile para compartir viajes, con el fin de conseguir compania, compartir gastos,
-							bajar la emision de gastos, brindar ayuda a otra persona.
-							<br>
-							La solución nace de la necesidad de varios grupos de WhatsApp del interior del país, donde
-							trasladarse de un lugar a otro es complicado, caro, hay poca frecuencia y el viaje a dedo es
-							un factor comun. Para lo mismo se busco una solucion por medio de una PWA.
-						</p>
-					</header>
-					<div class="content">
-						<div class="gallery">
-							<a href="images/gallery/fulls/viajando_01.png" class="landscape"><img
-									src="images/gallery/thumbs/viajando_01.png" alt="Wireframe" /></a>
-						</div>
-					</div>
-				</section>
+    <section class="beat left" data-from="0.825" data-to="0.875">
+      <span class="tag">KM 41</span>
+      <h2 data-en="The finish is in sight">Ya se ve la meta</h2>
+      <p class="note" data-en="Soft reset needed... but first, the finish line.">Soft reset needed... pero primero, la meta.</p>
+    </section>
 
-				<!-- Section -->
-				<section>
-					<header>
-						<h2>Un poco mas de info</h2>
-					</header>
-					<div class="content">
-						<p>La <strong>ilustración</strong> es otro de los puntos que me llaman y que tengo como hobbie,
-							cada vez que tengo un rato me gusta garabatear... nunca lo utilice como trabajo propiamente
-							dicho, porque ilustro basicamente cuando vienen las ganas, lo mismo me pasa con la madera...
-							me gusta armar cosas, reciclar. En este ultimo tiempo encontre tambien en la jardineria un
-							lugar donde canalizar y encontrar un equilibrio =).</p>
-					</div>
-				</section>
+    <section class="beat finish" data-from="0.96" data-to="1">
+      
+      <div>
+        <span class="tag">KM 42.195</span>
+        <h2 data-en="Shall we run the next one together?">¿Corremos la próxima juntos?</h2>
+        <p data-en="Have a project, an idea, or want to talk design (or trails)? Write to me on any of my networks.">¿Tenés un proyecto, una idea o querés charlar de diseño (o de senderos)? Escribime por cualquiera de mis redes.</p>
+        <div class="socials">
+          <a class="btn primary" href="https://www.linkedin.com/in/federicosebastianlemos" target="_blank" rel="noopener"><span data-en="Message me on LinkedIn">Escribime por LinkedIn</span> ↗</a>
+          <a class="btn" href="https://www.behance.net/federicolemos" target="_blank" rel="noopener">Behance ↗</a>
+          <a class="btn" href="https://www.instagram.com/federicolemos/" target="_blank" rel="noopener">Instagram ↗</a>
+          <a class="btn" href="https://www.flickr.com/photos/federicolemos" target="_blank" rel="noopener">Flickr ↗</a>
+        </div>
+        <p class="note" data-en="Official time: still running.">Tiempo oficial: todavía corriendo.</p>
+      </div>
+    </section>
+  </div>
+</main>
 
+<nav class="profile" aria-label="Perfil de altimetría" data-en-aria-label="Elevation profile">
+  <svg id="profile" role="img"></svg>
+</nav>
 
+<!-- case details (shown in the dialog) -->
+<div hidden>
+  <div id="case-ypf">
+    <h3>YPF · QR Almacenes</h3>
+    <p data-en="Mobile app to create and count inventory of construction materials in the oil and gas industry, across covered and open-air warehouses.">App mobile para crear y contar inventario de materiales de construcción en la industria de hidrocarburos, en almacenes techados y al aire libre.</p>
+    <p data-en="Survey and analysis of the operation, interviews, contextual inquiry, first screens and a prototype tested and iterated before development.">Relevamiento y análisis de la operatoria, entrevistas, relevamiento contextual, primeras pantallas y un prototipo que se probó e iteró antes del desarrollo.</p>
+    <div class="shots"><img src="images/gallery/fulls/ypf_01.png" alt="" loading="lazy"/><img src="images/gallery/fulls/ypf_02.png" alt="" loading="lazy"/><img src="images/gallery/fulls/ypf_03.png" alt="" loading="lazy"/></div>
+  </div>
+  <div id="case-autopago">
+    <h3>Farmacity · Autopago</h3>
+    <p data-en="Self-checkout terminals where customers scan their products and pay on their own.">Terminales de autopago donde los clientes escanean sus productos y pagan solos.</p>
+    <p data-en="Interviews with customers and cashiers, archetypes, flows and sketches; a prototype tested in a simulation at the pilot store, then mockups refined with journey maps and more tests.">Entrevistas a clientes y cajeros, arquetipos, flujos y bocetos; un prototipo probado en una simulación en la tienda piloto, y después mockups refinados con viajes de usuario y más pruebas.</p>
+    <div class="shots"><img src="images/gallery/fulls/farmacity_autopago_01.png" alt="" loading="lazy"/><img src="images/gallery/fulls/farmacity_autopago_02.png" alt="" loading="lazy"/><img src="images/gallery/fulls/farmacity_autopago_03.png" alt="" loading="lazy"/></div>
+  </div>
+  <div id="case-farmapp">
+    <h3>Farmacity · App</h3>
+    <p data-en="Loyalty app with personalized discounts, nearby stores and services, and medicine search and reservation.">App de fidelización con descuentos personalizados, sucursales cercanas y sus servicios, y búsqueda y reserva de medicamentos.</p>
+    <p data-en="Business interviews, in-store surveys, personas and sketches that became a prototype, tested with users before development.">Entrevistas con el negocio, encuestas en sucursal, personas y bocetos que se convirtieron en un prototipo, probado con usuarios antes del desarrollo.</p>
+    <div class="shots"><img src="images/gallery/fulls/farmacity_app_01.png" alt="" loading="lazy"/><img src="images/gallery/fulls/farmacity_app_02.png" alt="" loading="lazy"/><img src="images/gallery/fulls/farmacity_app_03.png" alt="" loading="lazy"/></div>
+  </div>
+  <div id="case-safetap">
+    <h3>Safetap</h3>
+    <p data-en="Mobile app connected to a panic button that alerts the nearest responders so help arrives as fast as possible.">App mobile conectada a un botón antipánico, que alerta a los socorristas más cercanos para que la ayuda llegue lo antes posible.</p>
+    <p data-en="Interviews, a prototype and proofs of concept, then a tested flow to refine details before the navigable prototype and visual design.">Entrevistas, un prototipo y pruebas de concepto, y después un flujo probado para ajustar detalles antes del prototipo navegable y el diseño visual.</p>
+    <div class="shots"><img src="images/gallery/fulls/safetap_01.png" alt="" loading="lazy"/><img src="images/gallery/fulls/safetap_02.png" alt="" loading="lazy"/><img src="images/gallery/fulls/safetap_03.png" alt="" loading="lazy"/></div>
+  </div>
+  <div id="case-viajeros">
+    <h3>Viajeros</h3>
+    <p data-en="A PWA to share rides where getting around is hard, expensive and infrequent: company, shared costs and fewer emissions.">Una PWA para compartir viajes donde moverse es complicado, caro y poco frecuente: compañía, gastos compartidos y menos emisiones.</p>
+    <div class="shots"><img src="images/gallery/fulls/viajando_01.png" alt="" loading="lazy"/></div>
+  </div>
+</div>
 
+<dialog id="caseDlg">
+  <button type="button" class="dlg-close" aria-label="Cerrar" data-en-aria-label="Close">✕</button>
+  <div class="dlg-body"></div>
+</dialog>
 
-				<!-- Section -->
-				<section>
-					<header>
-						<h2>Ponete en contacto</h2>
-					</header>
-					<div class="content">
-						<p>
-							<strong>Te invito a contactarme para contarte un poco mas!</strong>
-							<br>
-							Contame tus proyectos, puedo ayudarte con el tuyo?
-						</p>
-						<!-- <form>
-								<div class="fields">
-									<div class="field half">
-										<input type="text" name="name" id="name" placeholder="Name" />
-									</div>
-									<div class="field half">
-										<input type="email" name="email" id="email" placeholder="Email" />
-									</div>
-									<div class="field">
-										<textarea name="message" id="message" placeholder="Message" rows="7"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Enviar mensaje" class="button primary" /></li>
-								</ul>
-							</form> -->
-					</div>
-					<footer>
-						<ul class="items">
-							<!-- <li>
-								<h3>Correo electronico</h3>
-								<a href="mailto:hola@flemos.com.ar">hola@flemos.com.ar</a>
-							</li> -->
-							<li>
-								<h3>Teléfono</h3>
-								<a href="shorturl.at/txEKZ">+54 11 54 23 85 73</a>
-							</li>
-							<li>
-								<h3>Address</h3>
-								<span>San Martin de los Andes,</span>
-								<br>
-								<span>Provincia del Neuquen</span>
-							</li>
-							<li>
-								<h3>O por las redes</h3>
-								<ul class="icons">
-									<li><a href="https://www.linkedin.com/in/federicosebastianlemos"
-											class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a>
-									</li>
-									<li><a href="https://www.behance.net/federicolemos"
-											class="icon brands fa-behance"><span class="label">Behance</span></a></li>
-									<li><a href="https://www.instagram.com/federicolemos/"
-											class="icon brands fa-instagram"><span class="label">Instagram</span></a>
-									</li>
-									<li><a href="https://www.flickr.com/photos/federicolemos"
-											class="icon brands fa-flickr"><span class="label">Flickr</span></a></li>
-								</ul>
-							</li>
-						</ul>
-					</footer>
-				</section>
-
-				<!-- Copyright -->
-				<div class="copyright">&copy; Todos los derechos reservados. flemos 2021.</div>
-
-			</div>
-		</div>
-	</div>
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-
+<script src="assets/trail/cam.js"></script>
 </body>
-
 </html>
