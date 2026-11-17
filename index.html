@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title data-en="Federico Lemos · Specialist Designer">Federico Lemos · Diseñador especialista</title>
   <meta name="description" content="Federico Lemos (flemos), diseñador especialista en UX/UI. Más de 20 años humanizando tecnología: Hexacta, GlobalLogic, Hitachi Digital y Palemosoft." />
-  <meta name="theme-color" content="#a6dfd0" />
+  <meta name="theme-color" content="#a2e2cd" />
   <meta property="og:title" content="Federico Lemos · Diseñador especialista" />
   <meta property="og:description" content="Una carrera de trail de largada a meta: mi recorrido como diseñador." />
   <meta property="og:image" content="images/trail/runner.jpg" />
@@ -29,35 +29,18 @@
 
 <main id="race" class="race">
   <div class="sticky">
-    <svg id="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      
-      <!-- 1. far away: the whole mountain, a tiny runner on the switchbacks -->
-      <g id="far"><g><g id="farCam"></g><g id="farRunner"></g></g></g>
-
-      <!-- 2. side view, parallax layers -->
-      <g id="side" style="display:none">
-        <g id="sFar"></g>
-        <g id="sPeak"></g>
-        <g id="sMid"></g>
-        <rect class="f-paper" x="-2000" y="742" width="5600" height="400"/><path class="k" d="M-2000 742 L3600 742"/>
-        <g id="sGround"></g>
-        <g id="sItems"></g>
-        <g id="sRunner"></g>
-        <g id="sFore"></g>
-      </g>
-
-      <!-- 3. the runner comes toward the finish -->
-      <g id="approach" style="display:none">
-        <g id="aWorld"></g>
-        <g id="aRunner"></g>
-        <g id="aArch"></g>
-      </g>
-    </svg>
+    <div class="stage" aria-hidden="true">
+      <div class="scene" id="sc-far"><img src="images/trail/far.jpg" alt="" /></div>
+      <div class="scene" id="sc-a"><img src="images/trail/side-a.jpg" alt="" /></div>
+      <div class="scene mirror" id="sc-b"><img src="images/trail/side-b.jpg" alt="" /></div>
+      <div class="scene" id="sc-run"><img src="images/trail/runner.jpg" alt="" /></div>
+      <div class="scene" id="sc-meta"><img src="images/trail/meta.jpg" alt="" /></div>
+    </div>
 
     <div id="switchback" class="switchback" aria-hidden="true"><span data-en="switchback ↩">zigzag ↩</span></div>
 
     <!-- ===== story beats ===== -->
-    <section class="beat hero" data-from="0" data-to="0.075">
+    <section class="beat hero" data-from="0" data-to="0.06">
       <div class="bib">2185<small data-en="SPECIALIST DESIGNER">DISEÑADOR ESPECIALISTA</small></div>
       <h1>Federico Lemos</h1>
       <p class="role" data-en="Specialist Designer · UX/UI">Diseñador especialista · UX/UI</p>
@@ -65,7 +48,7 @@
       <p class="scroll-hint"><span>↓</span> <b data-en="Scroll to start running">Scrolleá para largar</b></p>
     </section>
 
-    <section class="beat left" data-from="0.11" data-to="0.19">
+    <section class="beat left" data-from="0.10" data-to="0.18">
       <span class="tag" data-en="RACE INFO">FICHA DE LA CARRERA</span>
       <dl class="race-info">
         <dt data-en="Runner">Corredor</dt><dd>Federico Lemos · #2185</dd>
@@ -90,7 +73,7 @@
       <p class="note" data-en="Wet shoes. Kept going.">Zapatillas mojadas. Se sigue igual.</p>
     </section>
 
-    <section class="beat left" data-from="0.415" data-to="0.48">
+    <section class="beat left" data-from="0.415" data-to="0.47">
       <span class="tag" data-en="KM 21 · HALF MARATHON">KM 21 · MEDIA MARATÓN</span>
       <h2 data-en="Today: Hitachi Digital">Hoy: Hitachi Digital</h2>
       <p data-en="GlobalLogic is now part of Hitachi Digital, and that's where I keep running as a Specialist Designer.">GlobalLogic hoy es parte de Hitachi Digital, y ahí sigo corriendo como Diseñador especialista.</p>
@@ -101,7 +84,7 @@
       </div>
     </section>
 
-    <section class="beat right" data-from="0.56" data-to="0.625">
+    <section class="beat right" data-from="0.555" data-to="0.615">
       <span class="tag" data-en="KM 28 · SIDE TRAIL">KM 28 · DESVÍO</span>
       <h2 data-en="Side trail: Palemosoft">Desvío: Palemosoft</h2>
       <p data-en="In parallel, with Palemosoft we build our own products. A trail that's ours to mark.">En paralelo, con Palemosoft armamos productos propios. Un sendero que marcamos nosotros.</p>
@@ -113,7 +96,7 @@
       <p class="note" data-en="More projects in progress. Not lost, exploring.">Hay otros en progreso. No me perdí, estoy explorando.</p>
     </section>
 
-    <section class="beat right wide" data-from="0.645" data-to="0.72">
+    <section class="beat right wide" data-from="0.64" data-to="0.71">
       <span class="tag" data-en="KM 33 · AID STATION">KM 33 · PUESTO DE HIDRATACIÓN</span>
       <h2 data-en="Cases that kept me going">Casos que me dieron energía</h2>
       <p data-en="Interviews, prototypes and user tests to refill and keep going. Grab one:">Entrevistas, prototipos y pruebas con usuarios para recargar y seguir. Agarrá uno:</p>
@@ -126,7 +109,7 @@
       </div>
     </section>
 
-    <section class="beat right" data-from="0.745" data-to="0.815">
+    <section class="beat right" data-from="0.73" data-to="0.79">
       <span class="tag" data-en="KM 38 · THE WALL">KM 38 · EL MURO</span>
       <h2 data-en="What's in my pack">Lo que llevo en la mochila</h2>
       <p data-en="When the legs give up, the method carries you.">Cuando las piernas no dan más, te lleva el método.</p>
@@ -138,11 +121,14 @@
       <p class="note" data-en="Snacks: illustration, woodworking and gardening.">Snacks: ilustración, madera y jardinería.</p>
     </section>
 
-    <section class="beat finish" data-from="0.965" data-to="1">
-      <figure class="photo">
-        <img src="images/trail/runner.jpg" alt="Ilustración: Federico corriendo con el dorsal 2185" data-en-alt="Illustration: Federico running with bib 2185" />
-        <figcaption data-en="Official finish photo">Foto oficial de llegada</figcaption>
-      </figure>
+    <section class="beat left" data-from="0.825" data-to="0.875">
+      <span class="tag">KM 41</span>
+      <h2 data-en="The finish is in sight">Ya se ve la meta</h2>
+      <p class="note" data-en="Soft reset needed... but first, the finish line.">Soft reset needed... pero primero, la meta.</p>
+    </section>
+
+    <section class="beat finish" data-from="0.96" data-to="1">
+      
       <div>
         <span class="tag">KM 42.195</span>
         <h2 data-en="Shall we run the next one together?">¿Corremos la próxima juntos?</h2>
@@ -201,6 +187,6 @@
   <div class="dlg-body"></div>
 </dialog>
 
-<script src="assets/trail/race.js"></script>
+<script src="assets/trail/cam.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 /* flemos — trail edition v2 */
 :root {
-  --bg: #a6dfd0;
+  --bg: #a2e2cd;
   --far: #c6ece1;
   --mid: #8fd2c0;
   --tree: #6cbfa8;
@@ -39,6 +39,10 @@ h1, h2, h3 { font-family: var(--hand); font-weight: 400; margin: 0; }
 /* the race: a tall scroller with a sticky stage */
 .race { position: relative; height: 1500vh; }
 .sticky { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.stage { position: absolute; inset: var(--top) 0 var(--bar) 0; overflow: hidden; background: var(--bg); }
+.scene { position: absolute; inset: 0; overflow: hidden; opacity: 0; visibility: hidden; will-change: opacity; }
+.scene img { position: absolute; left: 0; top: 0; max-width: none; transform-origin: 0 0; will-change: transform; user-select: none; }
+.scene.mirror { transform: scaleX(-1); }
 #scene { position: absolute; inset: var(--top) 0 var(--bar) 0; width: 100%; height: calc(100% - var(--top) - var(--bar)); display: block; }
 
 /* line art */
@@ -69,7 +73,7 @@ h1, h2, h3 { font-family: var(--hand); font-weight: 400; margin: 0; }
 #scene .bibtxt { font: 700 11px var(--body); fill: var(--ink); }
 
 .switchback {
-  position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; opacity: 0;
+  position: absolute; inset: 22% 0 auto 0; display: grid; place-items: center; pointer-events: none; opacity: 0;
   font-family: var(--hand); font-size: clamp(2.5rem, 7vw, 5rem);
 }
 
@@ -139,7 +143,7 @@ h1, h2, h3 { font-family: var(--hand); font-weight: 400; margin: 0; }
 
 .finish {
   right: max(1rem, 4vw); top: auto; bottom: calc(var(--bar) + 1rem);
-  width: min(720px, calc(100% - 2rem)); display: grid; grid-template-columns: 210px 1fr; gap: 1.4rem; align-items: center;
+  width: min(470px, calc(100% - 2rem)); display: block;
 }
 .photo { margin: 0; background: #fff; border: var(--line) solid var(--ink); padding: .5rem .5rem .2rem; transform: rotate(-3deg); box-shadow: 4px 4px 0 var(--ink); }
 .photo img { aspect-ratio: 4/5; object-fit: cover; object-position: top; border: 2px solid var(--ink); }
@@ -174,7 +178,7 @@ dialog h3 { font-size: 2rem; margin-bottom: .5rem; }
   :root { --bar: 50px; --top: 52px; }
   .brand { font-size: 1.35rem; } .km { font-size: .95rem; }
   .beat, .beat.wide { left: .75rem !important; right: .75rem !important; width: auto; top: calc(var(--top) + .6rem); padding: .85rem 1rem 1rem; }
-  .hero { translate: none; }
+  .hero { translate: none !important; }
   .beat h2 { font-size: 1.55rem; }
   .beat p { font-size: .9rem; }
   .profile .cp text { display: none; }
