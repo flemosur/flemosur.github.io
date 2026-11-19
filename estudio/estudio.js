@@ -88,18 +88,6 @@
 		onScroll();
 	}
 
-	// "tecnología" cambia de peso y ancho según el cursor
-	var flex = document.querySelector('[data-flex]');
-	if (flex && finePointer && !reduce) {
-		document.querySelector('.hero').addEventListener('pointermove', function (e) {
-			var x = e.clientX / window.innerWidth;
-			var w = Math.round(200 + x * 600);
-			var wd = Math.round(75 + (1 - x) * 25);
-			flex.style.fontVariationSettings = '"wght" ' + w + ', "wdth" ' + wd + ', "opsz" 96';
-		});
-		document.querySelector('.hero').addEventListener('pointerleave', function () { flex.style.fontVariationSettings = ''; });
-	}
-
 	// Casos: acordeón
 	document.querySelectorAll('.case-head').forEach(function (head) {
 		head.addEventListener('click', function () {
