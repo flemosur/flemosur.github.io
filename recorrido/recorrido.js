@@ -75,19 +75,16 @@
   // s: where the camera looks along the route · r: where the runner is (defaults to s)
   // u, v: runner position on screen (0..1) · hr: runner height as a fraction of the screen
   var KEYS = [
-    { id: "inicio", at: 0, s: 0, u: 0.64, v: 0.33, hr: 0.016 },
-    { id: "ficha", at: 0.55, s: 0.06, u: 0.6, v: 0.6, hr: 0.04 },
-    { id: "hexacta", at: 0.1, s: 0.12, u: 0.3, v: 0.83, hr: 0.085 },
+    { id: "inicio", at: 0, s: 0.1, u: 0.3, v: 0.83, hr: 0.085 },
+    { id: "ficha", at: 0.6, s: 0.12, u: 0.3, v: 0.83, hr: 0.085 },
     { id: "palemosoft", at: 1, s: 0.44, u: 0.36, v: 0.83, hr: 0.085 },
-    { id: "enfoque", at: 0.22, s: 0.48, u: 0.74, v: 0.57, hr: 0.5 },
-    { id: "enfoque", at: 0.8, s: 0.53, u: 0.72, v: 0.57, hr: 0.52 },
+    { id: "enfoque", at: 0.22, s: 0.48, u: 0.74, v: 0.6, hr: 0.5 },
+    { id: "enfoque", at: 0.8, s: 0.53, u: 0.72, v: 0.6, hr: 0.52 },
     { id: "porque", at: 0.06, s: 0.565, u: 0.5, v: 0.9, hr: 0.075 },
     { id: "casos", at: 1, s: 0.8, u: 0.5, v: 0.9, hr: 0.075 },
-    { id: "recta", at: 0.35, s: 0.845, u: 0.3, v: 0.78, hr: 0.13 },
-    { id: "contacto", at: 0.02, s: sAtX(XF), u: 0.7, v: 0.66, hr: 0.3 },
-    { id: "contacto", at: 0.5, s: 0.9, u: 0.72, v: 0.7, hr: 0.24 },
-    { id: "vuelta", at: 0.35, s: 0.93, r: 0.9, u: 0.5, v: 0.55, hr: 0.06 },
-    { id: "loop", at: 0, s: 1, r: 0.9, u: 0.64, v: 0.33, hr: 0.016 }
+    { id: "recta", at: 0.3, s: 0.84, u: 0.3, v: 0.76, hr: 0.14 },
+    { id: "recta", at: 0.75, s: sAtX(XF) - 0.004, u: 0.45, v: 0.62, hr: 0.3 },
+    { id: "loop", at: 0, s: 1.1, u: 0.3, v: 0.83, hr: 0.085 }
   ];
   var CH = ["s", "r", "u", "v", "lh"];
   var curves = null, loopTop = 1, pos = [];
@@ -129,6 +126,7 @@
         return k[c];
       }));
     });
+    layoutScenes(portrait);
     buildTrack();
   }
 
@@ -414,75 +412,32 @@
   }
 
   /* ---------------- the runner ---------------- */
-  // angle a is measured from straight down, positive = forward
-  function limb(x0, y0, a, len, dir) { return [x0 + Math.sin(a) * len * dir, y0 - Math.cos(a) * len]; }
-
-  function runner(X, Y, k, dir, ph, cel, alpha) {
+  // cut-out of the illustrated runner, animated like a paper puppet:
+  // the legs swing on the hips (hidden by the shorts) and the body bobs
+  function sprite(src) { var i = new Image(); i.src = src; i.onload = function () { dirty = true; }; return i; }
+  var SPR = { body: sprite("img/runner-body.png"), legF: sprite("img/runner-leg-f.png"), legB: sprite("img/runner-leg-b.png") };
+  var SP = { footX: 262, footY: 597, tall: 582, hipF: [262, 352], hipB: [226, 352] };
+  function piece(img, pivot, ang) {
+    if (!img.complete || !img.naturalWidth) return;
+    ctx.save();
+    ctx.translate(pivot[0], pivot[1]); ctx.rotate(ang); ctx.translate(-pivot[0], -pivot[1]);
+    ctx.drawImage(img, 0, 0);
+    ctx.restore();
+  }
+  function runner(X, Y, k, dir, ph, alpha) {
     if (alpha <= 0.01) return;
+    var sc = k * 1.85 / SP.tall;
+    var c = 0.5 - 0.5 * Math.cos(ph);
+    var bob = Math.abs(Math.sin(ph)) * 10;
     ctx.save();
     ctx.globalAlpha = alpha;
     ctx.translate(X, Y);
-    ctx.scale(k, -k);          // local units, y up, feet at 0
-    var amp = 1 - cel * 0.9;
-    var bob = 0.05 * Math.abs(Math.sin(ph)) * amp;
-    var hip = [0, 0.9 + bob];
-    var lean = 0.2 * amp + 0.03;
-    var sh = [hip[0] + Math.sin(lean) * 0.56 * dir, hip[1] + Math.cos(lean) * 0.56];
-    var px1 = 1 / k;
-    var lw = Math.max(0.08, 1.4 * px1);
-    ctx.lineCap = "round"; ctx.lineJoin = "round";
-
-    function leg(p, shade) {
-      var th = (0.12 + 0.6 * Math.sin(p)) * amp;                       // thigh swing
-      var bend = (0.15 + 1.25 * Math.pow(0.5 + 0.5 * Math.sin(p - 1.6), 2)) * amp + 0.05;
-      var knee = limb(hip[0], hip[1], th, 0.45, dir);
-      var sa = th - bend;                                               // shin folds back
-      var ank = limb(knee[0], knee[1], sa, 0.45, dir);
-      ctx.strokeStyle = shade;
-      ctx.lineWidth = lw * 1.15;
-      ctx.beginPath(); ctx.moveTo(hip[0], hip[1]); ctx.lineTo(knee[0], knee[1]); ctx.lineTo(ank[0], ank[1]); ctx.stroke();
-      var fa = sa + Math.PI / 2 - 0.15;                                  // foot roughly square to the shin
-      var toe = limb(ank[0], ank[1], fa, 0.2, dir);
-      ctx.lineWidth = lw * 1.5;
-      ctx.beginPath(); ctx.moveTo(ank[0] - Math.sin(fa) * 0.04 * dir, ank[1] + Math.cos(fa) * 0.04); ctx.lineTo(toe[0], toe[1]); ctx.stroke();
-    }
-    function arm(p, shade, near) {
-      var ua = -0.7 * Math.sin(p) * amp, fa = 1.5;
-      if (cel > 0) { ua = lerp(ua, Math.PI - (near ? 0.35 : 0.6), cel); fa = lerp(fa, 0.25, cel); }
-      var el = limb(sh[0], sh[1], ua, 0.29, dir);
-      var hd = limb(el[0], el[1], ua + fa, 0.27, dir);
-      ctx.strokeStyle = shade;
-      ctx.lineWidth = lw;
-      ctx.beginPath(); ctx.moveTo(sh[0], sh[1]); ctx.lineTo(el[0], el[1]); ctx.lineTo(hd[0], hd[1]); ctx.stroke();
-    }
-
-    var far = "#7a7a77";
-    arm(ph, far, false);
-    leg(ph + Math.PI, far);
-    // shorts
-    ctx.strokeStyle = INK;
-    ctx.lineWidth = lw * 1.9;
-    var sk = limb(hip[0], hip[1], 0.12 + 0.6 * Math.sin(ph) * amp, 0.16, dir);
-    ctx.beginPath(); ctx.moveTo(hip[0], hip[1]); ctx.lineTo(sk[0], sk[1]); ctx.stroke();
-    leg(ph, INK);
-    // torso
-    ctx.lineWidth = lw * 2.6;
-    ctx.beginPath(); ctx.moveTo(hip[0], hip[1] + 0.04); ctx.lineTo(sh[0], sh[1] - 0.06); ctx.stroke();
-    // bib
-    if (k > 60) {
-      var bx = lerp(hip[0], sh[0], 0.5) + 0.04 * dir, by = lerp(hip[1], sh[1], 0.5);
-      ctx.save(); ctx.translate(bx, by); ctx.rotate(-lean * dir);
-      ctx.fillStyle = BG; ctx.fillRect(-0.055, -0.06, 0.11, 0.11);
-      ctx.restore();
-    }
-    // head (solid, pictogram style) with a cap brim
-    var head = [sh[0] + 0.08 * dir, sh[1] + 0.2];
-    ctx.fillStyle = INK;
-    ctx.beginPath(); ctx.arc(head[0], head[1], 0.12, 0, TAU); ctx.fill();
-    ctx.strokeStyle = INK;
-    ctx.lineWidth = Math.max(0.045, 1.5 * px1);
-    ctx.beginPath(); ctx.moveTo(head[0], head[1] + 0.06); ctx.lineTo(head[0] + 0.2 * dir, head[1] + 0.045); ctx.stroke();
-    arm(ph + Math.PI, INK, true);
+    ctx.scale(sc * dir, sc);
+    ctx.translate(-SP.footX, -SP.footY - bob + 6);
+    ctx.rotate(0.015 * Math.sin(ph * 2));
+    piece(SPR.legB, SP.hipB, -0.32 * c);
+    piece(SPR.legF, SP.hipF, 0.3 * c);
+    piece(SPR.body, SP.hipF, 0);
     ctx.restore();
   }
 
@@ -490,7 +445,60 @@
   var lang = "es";
   var lastRunX = 0, runDir = 1, travelled = 0, lastR = 0;
 
+  /* ---------------- illustrated scenes over the drawn world ---------------- */
+  // focus (fx, fy) of the image is placed at screen (su, sv), zoomed z times over "cover"
+  var FAR_RUNNER = [0.632, 0.599], FAR_RUNNER_H = 20;   // tiny runner in far.jpg (px of 768)
+  var SCENES = [
+    { el: document.getElementById("sc-far"), iw: 1376, ih: 768, keys: [
+      { id: "inicio", at: 0, op: 1, z: 1, fx: 0.5, fy: 0.5, su: 0.5, sv: 0.5 },
+      { id: "ficha", at: 0.6, op: 1, hr: 0.085, fx: FAR_RUNNER[0], fy: FAR_RUNNER[1], su: 0.3, sv: 0.83 },
+      { id: "hexacta", at: 0.05, op: 0, hr: 0.085, fx: FAR_RUNNER[0], fy: FAR_RUNNER[1], su: 0.3, sv: 0.83 },
+      { id: "vuelta", at: 0.3, op: 0, hr: 0.14, fx: FAR_RUNNER[0], fy: FAR_RUNNER[1], su: 0.5, sv: 0.6 },
+      { id: "vuelta", at: 0.54, op: 1, hr: 0.11, fx: FAR_RUNNER[0], fy: FAR_RUNNER[1], su: 0.5, sv: 0.6 },
+      { id: "loop", at: 0, op: 1, z: 1, fx: 0.5, fy: 0.5, su: 0.5, sv: 0.5 }
+    ] },
+    { el: document.getElementById("sc-meta"), iw: 1376, ih: 768, keys: [
+      { id: "recta", at: 0.52, op: 0, z: 2.4, fx: 0.5, fy: 0.42, su: 0.55, sv: 0.55 },
+      { id: "recta", at: 0.78, op: 1, z: 1.8, fx: 0.5, fy: 0.42, su: 0.55, sv: 0.55 },
+      { id: "contacto", at: 0.05, op: 1, z: 1, fx: 0.5, fy: 0.5, su: 0.5, sv: 0.5 },
+      { id: "vuelta", at: 0.46, op: 1, z: 1, fx: 0.5, fy: 0.5, su: 0.5, sv: 0.5 },
+      { id: "vuelta", at: 0.54, op: 0, z: 1, fx: 0.5, fy: 0.5, su: 0.5, sv: 0.5 }
+    ] }
+  ];
+  function layoutScenes(portrait) {
+    SCENES.forEach(function (sc) {
+      var s0 = Math.max(W / sc.iw, H / sc.ih);
+      var xs = [], ch = { op: [], z: [], fx: [], fy: [], su: [], sv: [] };
+      sc.keys.forEach(function (k) {
+        var el = document.getElementById(k.id);
+        xs.push(el.offsetTop + k.at * el.offsetHeight);
+        var z = k.z != null ? k.z : (k.hr * (portrait ? 0.85 : 1) * H) / (FAR_RUNNER_H * s0);
+        ch.op.push(k.op); ch.z.push(Math.log(z)); ch.fx.push(portrait && sc.iw === 1376 && k.z === 1 && sc.keys === SCENES[0].keys ? 0.6 : k.fx); ch.fy.push(k.fy);
+        ch.su.push(portrait ? 0.5 + (k.su - 0.5) * 0.35 : k.su); ch.sv.push(k.sv);
+      });
+      sc.s0 = s0; sc.img = sc.el.querySelector("img");
+      sc.img.style.width = sc.iw * s0 + "px"; sc.img.style.height = sc.ih * s0 + "px";
+      sc.c = {}; Object.keys(ch).forEach(function (n) { sc.c[n] = buildCurve(xs, ch[n]); });
+    });
+  }
+  function placeScenes(y) {
+    var cover = 0;
+    SCENES.forEach(function (sc) {
+      var op = clamp(sc.c.op(y), 0, 1);
+      sc.el.style.opacity = op.toFixed(3);
+      sc.el.style.visibility = op < 0.002 ? "hidden" : "visible";
+      if (op < 0.002) return;
+      var z = Math.exp(sc.c.z(y)), w = sc.iw * sc.s0, h = sc.ih * sc.s0;
+      var tx = sc.c.su(y) * W - sc.c.fx(y) * w * z, ty = sc.c.sv(y) * H - sc.c.fy(y) * h * z;
+      tx = clamp(tx, W - w * z, 0); ty = clamp(ty, H - h * z, 0);
+      sc.img.style.transform = "translate3d(" + tx.toFixed(1) + "px," + ty.toFixed(1) + "px,0) scale(" + z.toFixed(4) + ")";
+      cover = Math.max(cover, op);
+    });
+    return cover;
+  }
+
   function render(y) {
+    if (placeScenes(y) > 0.999) { updateTrack(y); return; }
     var st = {}; CH.forEach(function (c) { st[c] = curves[c](y); });
     setCamera(st);
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
@@ -508,19 +516,11 @@
     lastR = r;
     var p2 = pathXZ(r + 0.0015), dxr = p2[0] - rx;
     if (Math.abs(dxr) > 0.02) runDir = dxr > 0 ? 1 : -1;
-    var cel = sstep(sAtX(XF) - 0.001, sAtX(XF) + 0.012, r) * (r < 0.99 ? 1 : 0);
-    var ph = travelled / 1.55 * Math.PI;
-    var tail = st.s > S_FIN + 0.004;
-    var a1 = tail ? 1 - sstep(0.915, 0.965, st.s) : 1;
-    var a2 = tail ? sstep(0.955, 0.998, st.s) : 0;
+    var ph = travelled / 1.4 * Math.PI;
     list.push({ z: rz - 0.02, draw: function () {
       if (rz - cam.z < 0.6) return;
-      runner(sx(rx, rz), sy(height(rx, rz), rz), kAt(rz), runDir, ph, cel, a1);
+      runner(sx(rx, rz), sy(height(rx, rz), rz), kAt(rz), runDir, ph, 1);
     } });
-    if (a2 > 0) {
-      var np = pathXZ(1);
-      list.push({ z: np[1] - 0.02, draw: function () { runner(sx(np[0], np[1]), sy(height(np[0], np[1]), np[1]), kAt(np[1]), 1, 0.3, 0, a2); } });
-    }
 
     // props on the trail (current lap and the next, for the seam)
     [lap - 1, lap, lap + 1].forEach(function (L) {
